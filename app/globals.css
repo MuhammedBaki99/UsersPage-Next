@@ -12,7 +12,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background: #D9D9DE;
+  background: white;
 }
 
 img,
@@ -110,5 +110,14 @@ h6 {
   padding-top: 90px;
   background: #FEF6F5;
   border-radius: 30px;
+}
 
+@media (width <=768px) { 
+  .container {
+    width: 100%;
+  }
+
+  .userList {
+    width: 100%;
+  }
 }

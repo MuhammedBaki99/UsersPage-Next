@@ -1,15 +1,22 @@
-.userDetailContainer{
-  width: 1280px;
-  margin: 20px auto;
-  
-  
+.detailHeader {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 6% 90%;
+  padding: 10px;
+  background: #E4E4E9;
+  border-bottom: 1px solid rgba(100, 99, 99, 0.308);
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+  }
 
   a {
     text-decoration: none;
     color: white;
     background: #292C35;
     padding: 5px 10px;
-    border-radius: 20px; 
+    border-radius: 20px;
     transition: all .3s;
   }
 
@@ -18,94 +25,223 @@
     color: #292C35;
     border: 1px solid #292C35;
   }
-}
-.detailContainer {
-  width: 1280px;
-  margin: 50px auto;
-  display: flex;
-  justify-content: space-between;
+
 }
 
-.usersDetail {
-  width: 800px;
-  border-radius: 30px;
-  text-align: center;
-  background: #FEF6F5;
+.photoName {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  align-items: start;
+  justify-content: center;
+  background: #E4E4E9;
   padding: 20px;
+  gap: 20px;
+
+  img {
+    width: 200px;
+    background: white;
+  }
 
   h1 {
-    width: 300px;
-    margin: 5px auto;
-    border-bottom: 2px solid lightslategray;
-    color: lightslategray;
+    font-size: 40px;
   }
 
-  .usersPhysics {
+  p {
+    font-size: 24px;
+  }
+}
+
+.personalEducation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.personalInfo {
+  width: 400px;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  padding: 20px;
+
+  >div {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
-  }
 
-  .userAdress {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 50px;
-  }
-
-  .detailItem {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-
-    h3 {
-      display: inline;
-      border-bottom: 2px solid #292C35;
-      padding: 5px; 
+    img {
+      width: 40px;
     }
   }
 }
 
-.userDetailInfo {
-  width: 450px;
-  display: grid;
-  justify-content: center;
-  padding: 20px;
-  background: #FEF6F5;
-  border-radius: 30px;
+.personalInfo::before {
+  content: "";
+  width: 2px;
+  height: 70%;
+  background: #292c3557;
+  position: absolute;
+  right: 0;
+  top: 20%;
+}
 
-  .logo {
+.personalInfo::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background: #292c3557;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+.Education {
+  width: 400px;
+  position: relative;
+  padding: 20px;
+
+  >div {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: start;
-    
+    gap: 20px;
+
     img {
-      width: 300px;
+      width: 50px;
     }
   }
 
-  .userInfos{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    p{
-      font-size: 20px;
-      border-bottom: 2px solid #292C35; 
-      margin: 0;
+}
 
-      span{
-        color: darkred;
-      }
+.Education::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background: #292c3557;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+
+.companyAddresInfo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.companyCont {
+  width: 400px;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  padding: 20px;
+
+}
+
+.companyCont::before {
+  content: "";
+  width: 2px;
+  height: 70%;
+  background: #292c3557;
+  position: absolute;
+  right: 0;
+  top: 20%;
+}
+
+.companyCont::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background: #292c3557;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+.companyInformation {
+  width: 400px;
+  position: relative;
+  padding: 20px;
+
+  >div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 50px;
     }
+  }
+
+}
+
+.companyInformation::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background: #292c3557;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+.usersTodos {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+
+    h4:nth-child(2) {
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  }
+
+  li:nth-child(odd) {
+    background: rgba(211, 211, 211, 0.692);
+  }
+}
+
+.notasks {
+  text-align: center;
+  font-size: 30px;
+}
+
+@media (width <=768px) {
+  .detailHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .personalInfo {
+    width: 100%;
+  }
+
+  .Education {
+    width: 100%;
+  }
+
+  .companyCont {
+    width: 100%;
+  }
+
+  .companyInformation {
+    width: 100%;
+  }
+
+  .usersTodos {
+    width: 100%;
+  }
+
+  .personalInfo::before {
+    content: "";
+    width: 0;
+    height: 0;
   }
 }

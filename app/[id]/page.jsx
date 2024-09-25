@@ -28,81 +28,80 @@ export default function Student({ params }) {
 
   return (
     <div className="userDetailContainer">
-      <Link href="/">Geri Dön</Link>
+      <div className="detailHeader">
+        <Link href="/">Go Back</Link>
+        <h1>User Profil</h1>
+      </div>
       {usersData.map(x => (
-        <div className="detailContainer">
-          <div className="usersDetail">
-            <h1>Kişisel Özellikleri</h1>
-            <div className="usersPhysics">
-              <div className="detailItem">
-                <h3>Kan Grubu</h3>
-                <p>{x.bloodGroup}</p>
+        <div className="userProfileContainer">
+          <div className="photoName">
+            <img src={x.image} alt="" />
+            <div className="photoName-text">
+              <h1>{x.firstName} {x.lastName}</h1>
+              <p>#{x.role}</p>
+            </div>
+          </div>
+          <div className="personalEducation">
+            <div className="personalInfo">
+              <h3>Personal Information</h3>
+              <div className="email">
+                <img src="/email.png" alt="email icon" />
+                {x.email}
               </div>
-              <div className="detailItem">
-                <h3>Göz Rengi</h3>
-                <p>{x.eyeColor}</p>
-              </div>
-              <div className="detailItem">
-                <h3>Saç Rengi ve Tipi</h3>
-                <p>{x.hair.color} - {x.hair.type}</p>
+              <div className="phone">
+                <img src="/phone.png" alt="email icon" />
+                {x.phone}
               </div>
             </div>
-            <h1>Şirket Bilgileri</h1>
-            <div className="userAdress">
 
-              <div className="detailItem">
-                <h3>Sektör</h3>
-                <p>{x.company.department}</p>
-              </div>
-              <div className="detailItem">
-                <h3>Şirket Adı</h3>
-                <p>{x.company.name}</p>
-              </div>
-              <div className="detailItem">
-                <h3>Unvan</h3>
-                <p>{x.company.title}</p>
-              </div>
-              <div className="detailItem">
-                <h3>Şirket Adresi</h3>
-                <div>
-                  <p>Adres: {x.company.address.address}</p>
-                  <p>Şehir: {x.company.address.city}</p>
-                  <p>Cadde: {x.company.address.state}</p>
-                  <p>Posta Kodu: {x.company.address.postalCode}</p>
-                  <p>Ülke: {x.company.address.country}</p>
-                </div>
+            <div className="Education">
+              <h3>Education Information </h3>
+              <div className="universty">
+                <img src="/university.png" alt="email icon" />
+                <p>{x.university}</p>
               </div>
             </div>
-            <h1>Kullanıcı Görevleri</h1>
+          </div>
+
+          <div className="companyAddresInfo">
+            <div className="companyCont">
+              <h3>Company Address</h3>
+              <div className="addressCont">
+                <p><span>Address:</span> {x.company.address.address}</p>
+                <p><span>State:</span> {x.company.address.state}</p>
+                <p><span>City:</span> {x.company.address.city}</p>
+                <p><span>Country:</span> {x.company.address.country}</p>
+              </div>
+            </div>
+            <div className="companyInformation">
+              <h3>Company Information</h3>
+              <p><span>Department:</span> {x.company.department}</p>
+              <p><span>Title:</span> {x.company.title}</p>
+              <p><span>Name:</span> {x.company.name}</p>
+            </div>
+          </div>
+
+
+          <ul className="usersTodos">
+            <h1>Todos</h1>
             {
-              usersTodo.length !== 0 ?
-                <>
-                  {usersTodo.map(a => (
-                    <div className="todoItem">
-                      <p>{a.todo}</p>
-                      <p>{`${a.completed ? "Yapıldı" : "Yapılmadı"}`}</p>
-                    </div>
-                  ))}
-                  </>: "Görev Yok"
-
+              usersTodo.length !== 0 ? <> {
+                usersTodo.map(x =>
+                  <li>
+                    <h4>{x.todo}</h4>
+                    <h4 style={{
+                      backgroundColor: `${x.completed ? "darkgreen" : "darkred"}`
+                    }}>{x.completed ? "Done" : "Not Done"}</h4>
+                  </li>
+                )
+              }</>
+              : <>
+              <p className="notasks">No Tasks</p>
+              </>
             }
 
-          </div>
-          <div className="userDetailInfo">
-            <div className="logo">
-              <img src={x.image} />
-              <h1>{x.firstName} {x.lastName}</h1>
-            </div>
-            <div className="userInfos">
-              <p><span>Cinsiyet: </span>{x.gender}</p>
-              <p><span>Yaş:</span> {x.age}</p>
-              <p><span>Eposta:</span> {x.email}</p>
-              <p><span>Telefon Numarası:</span> {x.phone}</p>
-              <p><span>Doğum Tarihi:</span> {x.birthDate}</p>
-            </div>
-          </div>
-        </div>
-      ))
+          </ul>
+        </div>))
       }
     </div>
   )
