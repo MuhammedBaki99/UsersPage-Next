@@ -94,8 +94,8 @@ export default function Student({ params }) {
             <h1>Todos</h1>
             {
               usersTodo.length !== 0 ? <> {
-                usersTodo.map(x =>
-                  <li>
+                usersTodo.map((x, i) =>
+                  <li key={i}>
                     <h4>{x.todo}</h4>
                     <h4 style={{
                       backgroundColor: `${x.completed ? "darkgreen" : "darkred"}`
