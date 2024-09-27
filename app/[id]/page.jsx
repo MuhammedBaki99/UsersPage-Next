@@ -2,8 +2,10 @@
 import Link from "next/link";
 import "./userdetail.css"
 import { useEffect, useState } from "react";
+import { notFound } from "next/navigation";
 
 export default function Student({ params }) {
+
   const { id } = params;
 
   const [usersData, setUsersData] = useState([]);
@@ -11,7 +13,12 @@ export default function Student({ params }) {
 
   useEffect(() => {
     async function getData() {
-      const users = await fetch("https://dummyjson.com/users/" + id).then(res => res.json());
+      const response = await fetch("https://dummyjson.com/users/" + id);
+
+      if (!response.ok) {
+        return notFound();
+      }
+      const users = await response.json();
       console.log(users);
       setUsersData([users]);
     }
@@ -33,7 +40,7 @@ export default function Student({ params }) {
         <h1>User Profil</h1>
       </div>
       {usersData.map(x => (
-        <div className="userProfileContainer">
+        <div key={x.id} className="userProfileContainer">
           <div className="photoName">
             <img src={x.image} alt="" />
             <div className="photoName-text">
@@ -95,9 +102,9 @@ export default function Student({ params }) {
                   </li>
                 )
               }</>
-              : <>
-              <p className="notasks">No Tasks</p>
-              </>
+                : <>
+                  <p className="notasks">No Tasks</p>
+                </>
             }
 
           </ul>
