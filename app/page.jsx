@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
@@ -9,7 +10,7 @@ export default async function Home() {
       <div className="userList">
         {users.map(x =>
           <div key={x.id} className="userItem">
-            <img src={x.image} alt="" />
+            <Image width={136} height={136} src={x.image} alt="" />
             <div key={x.id} className="userInfo">
               <h2>{x.firstName + x.lastName}</h2>
               <h4>{x.role}</h4>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./userdetail.css"
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 export default function Student({ params }) {
 
@@ -42,7 +43,7 @@ export default function Student({ params }) {
       {usersData.map(x => (
         <div key={x.id} className="userProfileContainer">
           <div className="photoName">
-            <img src={x.image} alt="" />
+            <Image width={200} height={200} src={x.image} alt="" />
             <div className="photoName-text">
               <h1>{x.firstName} {x.lastName}</h1>
               <p>#{x.role}</p>
@@ -52,11 +53,11 @@ export default function Student({ params }) {
             <div className="personalInfo">
               <h3>Personal Information</h3>
               <div className="email">
-                <img src="/email.png" alt="email icon" />
+                <Image width={40} height={40} src="/email.png" alt="email icon" />
                 {x.email}
               </div>
               <div className="phone">
-                <img src="/phone.png" alt="email icon" />
+                <Image width={40} height={40} src="/phone.png" alt="email icon" />
                 {x.phone}
               </div>
             </div>
@@ -64,7 +65,7 @@ export default function Student({ params }) {
             <div className="Education">
               <h3>Education Information </h3>
               <div className="universty">
-                <img src="/university.png" alt="email icon" />
+                <Image width={40} height={40} src="/university.png" alt="email icon" />
                 <p>{x.university}</p>
               </div>
             </div>
